@@ -14,7 +14,7 @@ Full usage, props, and customization:
 ## Install
 
 ```sh
-npm install auth_validations
+npm install auth_input
 ```
 
 Peer dependencies: **React ≥ 18** and **Zod ^4**.
