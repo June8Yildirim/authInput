@@ -1,11 +1,19 @@
 {
   "name": "@cuneytyildirim/auth_input",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "description": "Controlled, accessible React auth input with a live password-strength checklist and a matching Zod schema.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/June8Yildirim/authInput.git"
+  },
+  "homepage": "https://github.com/June8Yildirim/authInput#readme",
+  "bugs": {
+    "url": "https://github.com/June8Yildirim/authInput/issues"
+  },
   "keywords": [
     "react",
     "auth",

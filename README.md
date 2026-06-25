@@ -1,4 +1,4 @@
-# auth_validations
+# @cuneytyildirim/auth_input
 
 A controlled, accessible React auth input (`AuthInput`) with a live password
 requirements checklist, a strength meter, and a matching Zod schema for
@@ -14,7 +14,7 @@ Full usage, props, and customization:
 ## Install
 
 ```sh
-npm install auth_input
+npm install @cuneytyildirim/auth_input
 ```
 
 Peer dependencies: **React ≥ 18** and **Zod ^4**.
@@ -24,8 +24,8 @@ Peer dependencies: **React ≥ 18** and **Zod ^4**.
 Import the component and the precompiled stylesheet once:
 
 ```tsx
-import { AuthInput, authSchema, type AuthValues } from "auth_validations";
-import "auth_validations/styles.css";
+import { AuthInput, authSchema, type AuthValues } from "@cuneytyildirim/auth_input";
+import "@cuneytyildirim/auth_input/styles.css";
 ```
 
 The shipped CSS contains only the styles the component needs (no global reset),
@@ -42,7 +42,7 @@ import {
   buildAuthSchema, // (policy?) => schema bound to a custom policy
   buildPasswordRules, // (policy?) => rule list
   passwordMeetsAll, // (value, policy?) => boolean
-} from "auth_validations";
+} from "@cuneytyildirim/auth_input";
 
 import type {
   AuthInputProps,
@@ -51,7 +51,7 @@ import type {
   AuthValues,
   PasswordPolicy,
   PasswordRule,
-} from "auth_validations";
+} from "@cuneytyildirim/auth_input";
 ```
 
 ## Scripts

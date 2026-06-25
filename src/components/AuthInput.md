@@ -19,7 +19,7 @@ Full usage, props, and customization:
 | React ≥ 18 | the component (`useId`, `useState`) — peer dependency |
 | Zod ^4     | `buildAuthSchema` / `authSchema` — peer dependency    |
 
-> Styling ships as a **precompiled stylesheet** (`auth_validations/styles.css`),
+> Styling ships as a **precompiled stylesheet** (`@cuneytyildirim/auth_input/styles.css`),
 > so Tailwind is **not** required in the consuming app. The strength-icon
 > transition is pure CSS (`@keyframes`, bundled into that stylesheet). To
 > restyle, override `inputStyle` / `labelStyle` / `containerStyle`.
@@ -31,8 +31,8 @@ the exported Zod schema:
 
 ```tsx
 import { useState } from "react";
-import { AuthInput, authSchema, type AuthValues } from "auth_validations";
-import "auth_validations/styles.css"; // once, anywhere in your app
+import { AuthInput, authSchema, type AuthValues } from "@cuneytyildirim/auth_input";
+import "@cuneytyildirim/auth_input/styles.css"; // once, anywhere in your app
 
 type Errors = Partial<Record<keyof AuthValues, string>>;
 const EMPTY: AuthValues = { email: "", password: "", confirmPassword: "" };
