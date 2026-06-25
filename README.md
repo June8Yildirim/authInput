@@ -5,8 +5,12 @@ A controlled, accessible auth input for React. It adapts to the field type
 defaults, and — for signup password fields — renders a live requirements
 checklist with a strength meter and an animated strength icon.
 
-- **Component:** `src/components/AuthInput.tsx`
-- **Validation/schema:** `src/components/authValidation.ts`
+Full usage, props, and customization:
+
+- **[Full documentation](https://github.com/June8Yildirim/authInput/blob/main/src/components/AuthInput.md)**
+- **[Component source](https://github.com/June8Yildirim/authInput/blob/main/src/components/AuthInput.tsx)**
+- **[Validation / schema](https://github.com/June8Yildirim/authInput/blob/main/src/components/authValidation.ts)**
+- **[Repository](https://github.com/June8Yildirim/authInput)**
 
 ## Requirements
 
