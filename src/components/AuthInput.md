@@ -5,15 +5,19 @@ A controlled, accessible auth input for React. It adapts to the field type
 defaults, and — for signup password fields — renders a live requirements
 checklist with a strength meter and an animated strength icon.
 
-- **Component:** `src/components/AuthInput.tsx`
-- **Validation/schema:** `src/components/authValidation.ts`
+Full usage, props, and customization:
+
+- **[Full documentation](https://github.com/June8Yildirim/authInput/blob/main/src/components/AuthInput.md)**
+- **[Component source](https://github.com/June8Yildirim/authInput/blob/main/src/components/AuthInput.tsx)**
+- **[Validation / schema](https://github.com/June8Yildirim/authInput/blob/main/src/components/authValidation.ts)**
+- **[Repository](https://github.com/June8Yildirim/authInput)**
 
 ## Requirements
 
-| Dependency | Used for |
-| --- | --- |
+| Dependency | Used for                                              |
+| ---------- | ----------------------------------------------------- |
 | React ≥ 18 | the component (`useId`, `useState`) — peer dependency |
-| Zod ^4 | `buildAuthSchema` / `authSchema` — peer dependency |
+| Zod ^4     | `buildAuthSchema` / `authSchema` — peer dependency    |
 
 > Styling ships as a **precompiled stylesheet** (`auth_validations/styles.css`),
 > so Tailwind is **not** required in the consuming app. The strength-icon
@@ -106,35 +110,35 @@ The controlled/derived ones — `value`, `onChange`, `type`, `name`, `id`,
 `className`, `autoComplete` — are managed by the component and not overridable
 via the native passthrough (use the dedicated props instead).
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `label` | `string` | — | **Required.** Field label (also used by screen readers). |
-| `name` | `string` | — | **Required.** Input `name`. |
-| `value` | `string` | — | **Required.** Controlled value. |
-| `onChange` | `(value: string) => void` | — | **Required.** Receives the new string value (not the event). |
-| `variant` | `"email" \| "password" \| "text"` | `"text"` | Drives the derived `type` and `autoComplete`. |
-| `usage` | `"signup" \| "signin"` | `"signin"` | Form mode; affects password `autoComplete` and the checklist default. |
-| `showRequirements` | `boolean` | `true` for a signup password field | Force the requirements checklist on/off. |
-| `error` | `string` | — | Error message; sets `aria-invalid` and renders below the input. |
-| `helperText` | `React.ReactNode` | — | Hint shown below the input when there's no error. |
-| `hideLabel` | `boolean` | `false` | Visually hide the label (kept for screen readers via `sr-only`). |
-| `passwordPolicy` | `PasswordPolicy` | defaults | Customize the checklist requirements. |
-| `type` | `string` | derived from `variant` | Override the input type. |
-| `autoComplete` | `string` | derived from `variant`+`usage` | Override autocomplete. |
-| `inputStyle` | `string` | Tailwind default | `className` for the `<input>`. |
-| `labelStyle` | `string` | `"text-sm font-semibold"` | `className` for the `<label>`. |
-| `containerStyle` | `string` | `"flex flex-col gap-1.5"` | `className` for the wrapper `<div>`. |
+| Prop               | Type                              | Default                            | Description                                                           |
+| ------------------ | --------------------------------- | ---------------------------------- | --------------------------------------------------------------------- |
+| `label`            | `string`                          | —                                  | **Required.** Field label (also used by screen readers).              |
+| `name`             | `string`                          | —                                  | **Required.** Input `name`.                                           |
+| `value`            | `string`                          | —                                  | **Required.** Controlled value.                                       |
+| `onChange`         | `(value: string) => void`         | —                                  | **Required.** Receives the new string value (not the event).          |
+| `variant`          | `"email" \| "password" \| "text"` | `"text"`                           | Drives the derived `type` and `autoComplete`.                         |
+| `usage`            | `"signup" \| "signin"`            | `"signin"`                         | Form mode; affects password `autoComplete` and the checklist default. |
+| `showRequirements` | `boolean`                         | `true` for a signup password field | Force the requirements checklist on/off.                              |
+| `error`            | `string`                          | —                                  | Error message; sets `aria-invalid` and renders below the input.       |
+| `helperText`       | `React.ReactNode`                 | —                                  | Hint shown below the input when there's no error.                     |
+| `hideLabel`        | `boolean`                         | `false`                            | Visually hide the label (kept for screen readers via `sr-only`).      |
+| `passwordPolicy`   | `PasswordPolicy`                  | defaults                           | Customize the checklist requirements.                                 |
+| `type`             | `string`                          | derived from `variant`             | Override the input type.                                              |
+| `autoComplete`     | `string`                          | derived from `variant`+`usage`     | Override autocomplete.                                                |
+| `inputStyle`       | `string`                          | Tailwind default                   | `className` for the `<input>`.                                        |
+| `labelStyle`       | `string`                          | `"text-sm font-semibold"`          | `className` for the `<label>`.                                        |
+| `containerStyle`   | `string`                          | `"flex flex-col gap-1.5"`          | `className` for the wrapper `<div>`.                                  |
 
 ### Derived defaults
 
 If you don't pass `type` / `autoComplete`, they're inferred:
 
-| `variant` | `type` | `autoComplete` |
-| --- | --- | --- |
-| `email` | `email` | `email` |
-| `password` (`usage="signup"`) | `password` | `new-password` |
+| `variant`                     | `type`     | `autoComplete`     |
+| ----------------------------- | ---------- | ------------------ |
+| `email`                       | `email`    | `email`            |
+| `password` (`usage="signup"`) | `password` | `new-password`     |
 | `password` (`usage="signin"`) | `password` | `current-password` |
-| `text` | `text` | `off` |
+| `text`                        | `text`     | `off`              |
 
 ## Behavior
 
@@ -160,8 +164,8 @@ Both the checklist UI and the Zod schema are driven by the same
 type PasswordPolicy = {
   minLength?: number; // default 8
   uppercase?: number; // default 1
-  numbers?: number;   // default 1
-  symbols?: number;   // default 1
+  numbers?: number; // default 1
+  symbols?: number; // default 1
   extra?: PasswordRule[]; // custom rules appended to the built-ins
 };
 ```
@@ -169,7 +173,10 @@ type PasswordPolicy = {
 Customize counts per field, and use the same policy for submit validation:
 
 ```tsx
-import { buildAuthSchema, type PasswordPolicy } from "./components/authValidation";
+import {
+  buildAuthSchema,
+  type PasswordPolicy,
+} from "./components/authValidation";
 
 const POLICY: PasswordPolicy = { minLength: 12, uppercase: 2, symbols: 2 };
 const schema = buildAuthSchema(POLICY);
@@ -195,14 +202,14 @@ passwordPolicy={{
 
 ### Validation helpers (`authValidation.ts`)
 
-| Export | Signature | Description |
-| --- | --- | --- |
-| `authSchema` | `ZodType` | Default-policy schema (`email`, `password`, `confirmPassword`). |
-| `buildAuthSchema` | `(policy?) => ZodType` | Schema bound to a custom policy. |
-| `AuthValues` | type | `z.infer<typeof authSchema>`. |
-| `buildPasswordRules` | `(policy?) => PasswordRule[]` | The rule list (labels + tests). |
-| `passwordMeetsAll` | `(value, policy?) => boolean` | True when every rule passes. |
-| `PasswordPolicy`, `PasswordRule` | types | — |
+| Export                           | Signature                     | Description                                                     |
+| -------------------------------- | ----------------------------- | --------------------------------------------------------------- |
+| `authSchema`                     | `ZodType`                     | Default-policy schema (`email`, `password`, `confirmPassword`). |
+| `buildAuthSchema`                | `(policy?) => ZodType`        | Schema bound to a custom policy.                                |
+| `AuthValues`                     | type                          | `z.infer<typeof authSchema>`.                                   |
+| `buildPasswordRules`             | `(policy?) => PasswordRule[]` | The rule list (labels + tests).                                 |
+| `passwordMeetsAll`               | `(value, policy?) => boolean` | True when every rule passes.                                    |
+| `PasswordPolicy`, `PasswordRule` | types                         | —                                                               |
 
 ## Styling slots
 
