@@ -1,34 +1,63 @@
 {
   "name": "auth_validations",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
+  "description": "Controlled, accessible React auth input with a live password-strength checklist and a matching Zod schema.",
+  "keywords": [
+    "react",
+    "auth",
+    "input",
+    "password",
+    "validation",
+    "zod",
+    "form"
+  ],
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./styles.css": "./dist/auth_validations.css",
+    "./package.json": "./package.json"
   },
-  "dependencies": {
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "tailwindcss": "^4.3.1",
-    "zod": "^4.4.3"
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup && npm run build:css",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/auth_validations.css --minify",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@tailwindcss/vite": "^4.3.1",
-    "@types/node": "^24.13.2",
+    "@tailwindcss/cli": "^4.3.1",
     "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
     "eslint": "^10.5.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.6.0",
+    "react": "^19.2.7",
+    "tailwindcss": "^4.3.1",
+    "tsup": "^8.5.1",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.61.0",
-    "vite": "^8.1.0"
+    "zod": "^4.4.3"
   }
 }

@@ -1,0 +1,23 @@
+/* Precompiled stylesheet for AuthInput.
+ *
+ * Utilities only — Tailwind's preflight (global reset) is intentionally omitted
+ * so importing this file never alters a consumer's existing styles. The
+ * component itself sets the few resets it needs (border-style, list/margins).
+ */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@source "./components/AuthInput.tsx";
+
+/* Strength-icon enter animation (replayed by remounting the icon with key={level}). */
+@keyframes strength-pop {
+  from {
+    opacity: 0;
+    transform: translateY(45%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -117,7 +117,7 @@ export function PasswordChecklist({
           ))}
           {passedCount > 0 && (
             <p
-              className="flex items-center gap-1 text-sm font-medium transition-colors"
+              className="m-0 flex items-center gap-1 text-sm font-medium transition-colors"
               style={{ color: strength.clr }}
             >
               {/* <StrengthIcon className="h-4 w-4" /> */}
@@ -129,7 +129,7 @@ export function PasswordChecklist({
       <div className="flex flex-row justify-between items-center w-full">
         <ul
           aria-label="Password requirements"
-          className="grid grid-cols-2 gap-x-4 gap-y-2 w-11/12"
+          className="grid grid-cols-2 gap-x-4 gap-y-2 w-11/12 m-0 list-none p-0"
         >
           {rules.map((rule, i) => {
             const done = results[i];
@@ -229,7 +229,7 @@ export default function AuthInput({
   helperText,
   passwordPolicy,
   labelStyle = "text-sm font-semibold",
-  inputStyle = "rounded-lg border bg-transparent px-3 py-2 text-base text-inherit outline-none transition-colors focus:border-violet-500 aria-invalid:border-red-500",
+  inputStyle = "rounded-lg border border-solid border-gray-500/40 bg-transparent px-3 py-2 text-base text-inherit outline-none transition-colors focus:border-violet-500 aria-invalid:border-red-500",
   containerStyle = "flex flex-col gap-1.5",
   onFocus,
   onBlur,
