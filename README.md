@@ -4,8 +4,9 @@ A controlled, accessible React auth input (`AuthInput`) with a live password
 requirements checklist, a strength meter, and a matching Zod schema for
 submit-time validation.
 
-See **[`src/components/AuthInput.md`](src/components/AuthInput.md)** for full
+See **[`src/components/AuthInput.md`](https://github.com/June8Yildirim/authInput/blob/main/src/components/AuthInput.md)** for full
 usage, props, and customization.
+**[`The package repository`](https://github.com/June8Yildirim/authInput)** for full
 
 ## Install
 
@@ -32,12 +33,12 @@ consuming project — it's only used to build this package.
 
 ```ts
 import {
-  AuthInput,          // default UI component
-  PasswordChecklist,  // standalone checklist
-  authSchema,         // Zod schema (email + password + confirm)
-  buildAuthSchema,    // (policy?) => schema bound to a custom policy
+  AuthInput, // default UI component
+  PasswordChecklist, // standalone checklist
+  authSchema, // Zod schema (email + password + confirm)
+  buildAuthSchema, // (policy?) => schema bound to a custom policy
   buildPasswordRules, // (policy?) => rule list
-  passwordMeetsAll,   // (value, policy?) => boolean
+  passwordMeetsAll, // (value, policy?) => boolean
 } from "auth_validations";
 
 import type {
