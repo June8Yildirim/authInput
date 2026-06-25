@@ -1,7 +1,10 @@
 {
-  "name": "auth_validations",
+  "name": "@cuneytyildirim/auth_input",
   "version": "0.1.0",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Controlled, accessible React auth input with a live password-strength checklist and a matching Zod schema.",
   "keywords": [
     "react",
