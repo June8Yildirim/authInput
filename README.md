@@ -22,6 +22,8 @@ checklist with a strength meter and an animated strength icon.
 
 ## Quick start
 
+![AuthInput demo](./auth_input.gif)
+
 `AuthInput` is **controlled** — you own the value and validation. Pair it with
 the exported Zod schema:
 
